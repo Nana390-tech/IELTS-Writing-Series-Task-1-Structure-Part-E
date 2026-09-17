@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lesson 5: Plan, Write, Check | IELTS Task 1 Build Your Answer</title>
+<style>:root{
+  --ink:#1e2233; --muted:#5b6075; --paper:#ffffff; --line:#dfe3ee;
+  --good:#16a34a; --bad:#dc2626;
+  --r-lg:22px; --r-md:14px; --r-sm:9px;
+  --head:"Trebuchet MS","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Segoe UI","Avenir Next",Verdana,system-ui,sans-serif;
+  --ar:"Segoe UI","Noto Naskh Arabic",Tahoma,"Geeza Pro",sans-serif;
+}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{margin:0;font-family:var(--body);color:var(--ink);line-height:1.55;
+  background-color:var(--tint);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--sec);outline-offset:2px}
+.ar{font-family:var(--ar);direction:rtl;unicode-bidi:isolate}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:var(--pri);color:#fff;box-shadow:0 3px 0 var(--sec)}
+.top-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 18px}
+.top .num{font-family:var(--head);font-weight:800;font-size:1.9rem;line-height:1;background:var(--sec);color:var(--pri-dark);border-radius:12px;padding:6px 12px}
+.top h1{font-family:var(--head);font-size:1.25rem;margin:0;line-height:1.2}
+.top small{display:block;opacity:.85;font-size:.8rem}
+.top .grow{flex:1}
+.chip{background:rgba(255,255,255,.18);border-radius:999px;padding:6px 14px;font-weight:700;white-space:nowrap}
+.tools button{background:rgba(255,255,255,.14);border:0;border-radius:10px;padding:7px 11px;color:#fff;font-size:.85rem}
+.tools button:hover{background:rgba(255,255,255,.28)}
+
+/* hero */
+.hero{max-width:1080px;margin:26px auto 8px;padding:0 18px;display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:center}
+.hero h2{font-family:var(--head);font-size:2.6rem;line-height:1.08;margin:0 0 10px;color:var(--pri-dark)}
+.hero p{margin:0 0 6px;font-size:1.05rem;color:var(--muted);max-width:52ch}
+.hero .ar{font-size:1.2rem;color:var(--pri)}
+.hero-graph{background:var(--paper);border-radius:var(--r-lg);border:3px solid var(--pri);padding:10px;box-shadow:8px 8px 0 var(--sec)}
+.hero-graph svg{width:100%;height:auto;display:block}
+.draw{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.2s ease-out .3s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* step rail */
+.rail{max-width:1080px;margin:18px auto 0;padding:0 18px;display:flex;gap:8px;flex-wrap:wrap}
+.rail button{border:2px solid var(--pri);background:var(--paper);border-radius:999px;padding:8px 14px;font-weight:700;font-size:.9rem;display:flex;gap:8px;align-items:center}
+.rail button .n{background:var(--pri);color:#fff;border-radius:50%;width:24px;height:24px;display:inline-grid;place-items:center;font-size:.8rem}
+.rail button[aria-current="step"]{background:var(--pri);color:#fff}
+.rail button[aria-current="step"] .n{background:var(--sec);color:var(--pri-dark)}
+.rail button.done .n{background:var(--good)}
+
+main{max-width:1080px;margin:18px auto 40px;padding:0 18px}
+.panel{background:var(--paper);border-radius:var(--r-lg);padding:26px 28px;border:2px solid var(--line)}
+.panel>h3{font-family:var(--head);font-size:1.75rem;margin:0 0 4px;color:var(--pri-dark)}
+.panel>.lead{color:var(--muted);margin:0 0 20px;max-width:70ch}
+.lead .ar{display:block;margin-top:2px}
+
+/* graphs */
+.gbox{background:#fff;border:2px solid var(--line);border-radius:var(--r-md);padding:8px}
+.gbox svg{width:100%;height:auto;display:block}
+.gtitle{font-weight:700;text-align:center;font-size:.95rem;margin:4px 0 0}
+.gcap{text-align:center;font-family:var(--head);font-weight:800;color:var(--pri);font-size:1.1rem}
+.gridn{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-bottom:18px}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:.85}}
+.hl{animation:pulse 1.3s ease-in-out infinite}
+
+/* questions */
+.q{border-left:6px solid var(--sec);background:var(--soft);border-radius:var(--r-md);padding:16px 18px;margin:0 0 16px}
+.q .qt{font-weight:700;font-size:1.08rem;margin:0 0 10px}
+.q .qn{color:var(--pri);font-family:var(--head);font-weight:800;margin-right:6px}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{border:2px solid var(--pri);background:#fff;border-radius:12px;padding:9px 16px;font-size:1rem;font-weight:600;text-align:left}
+.opt:hover:not(:disabled){background:var(--soft2)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--good);border-color:var(--good);color:#fff}
+.opt.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+.opt.dim{opacity:.5}
+.opts.col{flex-direction:column}
+.fb{margin-top:10px;font-size:.95rem;padding:9px 12px;border-radius:10px;display:none}
+.fb.show{display:block}
+.fb.good{background:#dcfce7;color:#14532d}
+.fb.bad{background:#fee2e2;color:#7f1d1d}
+.blank{display:inline-block;min-width:90px;border-bottom:3px solid var(--pri);text-align:center;font-weight:800;color:var(--pri)}
+.band5{background:#fff;border:2px dashed #e11d48;border-radius:10px;padding:8px 12px;margin:0 0 10px;font-style:italic}
+.band5 b{font-style:normal;color:#be123c}
+
+/* word cards */
+.words{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.card{perspective:900px;height:285px;border:0;background:none;padding:0;text-align:left}
+.card .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--r-md);padding:14px;display:flex;flex-direction:column}
+.front{background:#fff;border:3px solid var(--pri);align-items:center;justify-content:center;text-align:center;gap:6px}
+.front .w{font-family:var(--head);font-weight:800;font-size:1.45rem;color:var(--pri-dark);line-height:1.15}
+.front .pos{font-size:.8rem;background:var(--soft);border-radius:999px;padding:2px 10px;color:var(--muted)}
+.front svg{width:92px;height:62px}
+.front .tap{font-size:.75rem;color:var(--muted)}
+.card.seen .front{border-color:var(--good)}
+.back{background:var(--pri);color:#fff;transform:rotateY(180deg);gap:6px;font-size:.9rem;overflow:auto}
+.back .ar{font-size:1.25rem;font-weight:700;color:var(--sec)}
+.back .ex{background:rgba(255,255,255,.14);border-radius:8px;padding:6px 8px}
+.back .ex b{color:var(--sec)}
+.say{align-self:flex-start;border:0;background:var(--sec);color:var(--pri-dark);border-radius:8px;padding:2px 10px;font-size:.8rem;font-weight:700}
+
+/* order */
+.tray{display:flex;flex-wrap:wrap;gap:8px;min-height:52px;padding:8px;border-radius:12px}
+.tray.ans{background:#fff;border:2px dashed var(--pri);margin-bottom:10px}
+.tile{border:2px solid var(--sec);background:#fff;border-radius:10px;padding:6px 12px;font-weight:600}
+.tray.ans .tile{background:var(--sec);color:var(--pri-dark)}
+.act{border:0;background:var(--pri);color:#fff;border-radius:10px;padding:9px 18px;font-weight:700;margin-right:8px}
+.act.alt{background:#fff;color:var(--pri);border:2px solid var(--pri)}
+
+/* match */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+.match .colm{display:flex;flex-direction:column;gap:8px}
+.mbtn{border:2px solid var(--pri);background:#fff;border-radius:10px;padding:9px 12px;font-weight:600;text-align:center;min-height:46px}
+.mbtn.sel{background:var(--sec);border-color:var(--sec);color:var(--pri-dark)}
+.mbtn.ok{background:var(--good);border-color:var(--good);color:#fff}
+.mbtn.no{background:var(--bad);border-color:var(--bad);color:#fff}
+
+/* model */
+.task{background:var(--soft);border-radius:var(--r-md);padding:12px 16px;margin-bottom:16px;font-style:italic}
+.modelwrap{display:grid;grid-template-columns:1fr 1.05fr;gap:22px;align-items:start}
+.modelwrap .gstick{position:sticky;top:86px}
+.para{margin:0 0 14px}
+.para .lab{display:inline-block;font-family:var(--head);font-weight:800;font-size:.8rem;color:#fff;background:var(--pri);border-radius:6px;padding:1px 8px;margin-bottom:4px}
+.para p{margin:0;font-size:1.05rem;line-height:1.75}
+.hlw{border:0;background:var(--soft2);border-bottom:3px solid var(--sec);border-radius:5px 5px 0 0;padding:0 3px;font-weight:700;color:var(--pri-dark)}
+.hlw.on{background:var(--sec);color:var(--pri-dark)}
+.hint{font-size:.9rem;color:var(--muted);margin:6px 0 12px}
+
+/* writing */
+textarea{width:100%;min-height:230px;border:2px solid var(--pri);border-radius:var(--r-md);padding:14px;font:inherit;font-size:1.05rem;line-height:1.7}
+.targets{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.tg{border:2px solid var(--line);border-radius:999px;padding:4px 12px;font-weight:600;font-size:.9rem;background:#fff}
+.tg.on{background:var(--good);border-color:var(--good);color:#fff}
+.wc{font-weight:700}
+.starters{background:var(--soft);border-radius:12px;padding:10px 16px;margin:12px 0}
+.starters li{margin:2px 0}
+
+.reveal{margin-top:18px;background:var(--soft2);border-radius:var(--r-md);padding:14px 18px}
+.reveal .ar{display:block}
+.act:disabled{opacity:.45;cursor:not-allowed}
+.compare{margin-top:20px;border-top:3px dashed var(--sec);padding-top:16px}
+.compare h4{font-family:var(--head);font-size:1.4rem;color:var(--pri-dark);margin:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:10px 0}
+.mine,.sample{background:#fff;border:2px solid var(--line);border-radius:var(--r-md);padding:14px 16px}
+.sample{border-color:var(--pri)}
+.mine .lab,.sample .lab{display:inline-block;font-family:var(--head);font-weight:800;font-size:.8rem;color:#fff;background:var(--pri);border-radius:6px;padding:1px 8px;margin-bottom:4px}
+.mine .lab{background:var(--muted)}
+.mine .txt{white-space:pre-wrap;line-height:1.7}
+.sample p{margin:0;line-height:1.75}
+mark{background:var(--soft2);border-bottom:3px solid var(--sec);color:var(--pri-dark);font-weight:700;padding:0 2px;border-radius:3px}
+.check{background:var(--soft);border-radius:var(--r-md);padding:12px 16px;display:flex;flex-direction:column;gap:6px}
+.check input{width:20px;height:20px;vertical-align:middle;accent-color:var(--pri)}
+/* badges & finish */
+.badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin:14px 0 20px}
+.badge{border:2px solid var(--line);border-radius:var(--r-md);padding:12px;text-align:center;background:#fff;opacity:.55}
+.badge.got{opacity:1;border-color:var(--sec);background:var(--soft)}
+.badge .ic{font-size:2rem}
+.badge b{display:block;font-size:.95rem}
+.badge small{color:var(--muted)}
+.scorebig{font-family:var(--head);font-weight:800;font-size:3.4rem;color:var(--pri);line-height:1}
+.bar{height:16px;background:var(--soft);border-radius:999px;overflow:hidden;margin:8px 0 16px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--pri),var(--sec))}
+.finish input{font:inherit;font-size:1.05rem;border:2px solid var(--pri);border-radius:10px;padding:9px 12px;width:min(360px,100%)}
+.navrow{display:flex;justify-content:space-between;margin-top:22px;gap:10px}
+
+.cert-bg{position:fixed;inset:0;background:rgba(20,20,40,.6);z-index:50;display:none;place-items:center;padding:16px}
+.cert-bg.show{display:grid}
+.cert{background:#fff;max-width:760px;width:100%;border-radius:18px;padding:34px;text-align:center;border:12px solid var(--pri);outline:4px solid var(--sec);outline-offset:-22px;position:relative}
+.cert h2{font-family:var(--head);color:var(--pri-dark);font-size:2.2rem;margin:6px 0}
+.cert .nm{font-family:Georgia,serif;font-size:2.3rem;color:var(--pri);border-bottom:2px solid var(--sec);display:inline-block;padding:0 20px;margin:8px 0}
+.cert .by{margin-top:18px;font-size:.9rem;color:var(--muted)}
+.cert .btns{margin-top:18px}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:60}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:0 0 30px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--pri-dark);color:#fff;padding:10px 18px;border-radius:12px;z-index:70;display:none}
+.toast.show{display:block}
+
+@media (max-width:820px){
+  html{font-size:17px}
+  .hero{grid-template-columns:1fr}
+  .hero h2{font-size:2rem}
+  .modelwrap{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr}
+  .modelwrap .gstick{position:sticky;top:64px;z-index:5}
+  .top h1{font-size:1rem}.top small{display:none}
+  .panel{padding:20px 16px}
+  .match{grid-template-columns:1fr 1fr;gap:8px}
+}
+@media (prefers-reduced-motion:reduce){
+  .draw{animation:none;stroke-dashoffset:0}.hl{animation:none;opacity:.7}
+  .card .in{transition:none}
+}
+@media print{
+  body *{visibility:hidden}
+  .cert-bg,.cert-bg *{visibility:visible}
+  .cert-bg{position:absolute;inset:0;background:none;display:block}
+  .cert .btns{display:none}
+}
+
+/* Build Your Answer additions */
+.obj{background:var(--paper);border:2px solid var(--pri);border-radius:var(--r-md);padding:10px 16px;margin-top:12px;max-width:52ch}
+.obj ul{margin:6px 0 0;padding-left:20px}.obj li{margin:2px 0}
+.lcard{border:2px solid var(--line);border-radius:var(--r-md);padding:16px 20px;margin-bottom:16px;background:#fff}
+.lcard.seen{border-color:var(--pri)}
+.lhead{display:flex;align-items:center;gap:12px}
+.lhead h4{font-family:var(--head);font-size:1.3rem;margin:0;color:var(--pri-dark)}
+.lnum{background:var(--pri);color:#fff;border-radius:50%;width:34px;height:34px;display:grid;place-items:center;font-weight:800;flex:none}
+.lcard.seen .lnum{background:var(--good)}
+.lar{color:var(--pri);margin:6px 0 10px;font-size:1.05rem}
+.lcard p{margin:0 0 10px;max-width:75ch}
+.llist{margin:0 0 12px;padding-left:22px}.llist li{margin:4px 0}
+.ltable{overflow-x:auto;margin:0 0 12px}
+.ltable table{border-collapse:collapse;width:100%;font-size:.95rem}
+.ltable th{background:var(--pri);color:#fff;text-align:left;padding:7px 10px}
+.ltable td{border:1px solid var(--line);padding:7px 10px;vertical-align:top}
+.ltable tr:nth-child(even) td{background:var(--soft)}
+.lex{border-left:6px solid var(--sec);background:var(--soft2);border-radius:10px;padding:10px 14px;margin:0 0 12px}
+.lex.bad{border-left-color:var(--bad);background:#fee2e2}
+.lex.good{border-left-color:var(--good);background:#dcfce7}
+.seg{padding:1px 4px;border-radius:5px;font-weight:700}
+.seg.s1{background:#dbeafe;color:#1e3a8a}.seg.s2{background:#fce7f3;color:#9d174d}.seg.s3{background:#dcfce7;color:#14532d}.seg.s4{background:#fef3c7;color:#78350f}.seg.s5{background:#ede9fe;color:#4c1d95}
+.opt.pickm.on{background:var(--soft2);border-color:var(--sec)}
+.opt.missed{background:#dcfce7;border-color:var(--good);color:#14532d}
+.sortlist{display:flex;flex-direction:column;gap:10px}
+.srow{background:#fff;border:2px solid var(--line);border-radius:12px;padding:10px 12px}
+.stext{font-weight:600;margin-bottom:8px}
+.scats{display:flex;flex-wrap:wrap;gap:6px}
+.scat{border:2px solid var(--pri);background:#fff;border-radius:999px;padding:4px 12px;font-size:.9rem;font-weight:700}
+.scat.right{background:var(--good);border-color:var(--good);color:#fff}
+.scat.wrong{background:var(--bad);border-color:var(--bad);color:#fff}
+.scat.dim{opacity:.45}
+.tile{text-align:left}
+.job{display:inline-block;margin-left:8px;font-size:.85rem;color:var(--muted);font-style:italic}
+.task ol{margin:8px 0 0;padding-left:22px}
+
+.hlw{cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone;line-height:1.9}
+.gridn:has(> :only-child){max-width:700px}
+
+.tr{background:#fdf2f8;border-bottom:3px dashed #db2777;color:#9d174d;font-weight:700;padding:0 3px;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.legend{font-size:.9rem;color:var(--muted);margin:0 0 10px}
+.hldemo{background:var(--soft2);border-bottom:3px solid var(--sec);border-radius:5px 5px 0 0;padding:0 3px;font-weight:700;color:var(--pri-dark)}
+.linkers{background:#fdf2f8;border-radius:12px;padding:10px 16px;margin:12px 0}
+.linkers .lk{display:inline-block;margin:6px 6px 0 0;background:#fff;border:2px dashed #db2777;color:#9d174d;border-radius:999px;padding:3px 12px;font-weight:700;font-size:.92rem}
+</style></head>
+<body><div id="app"></div>
+<script>window.LESSON = {
+id:"build-w5", num:5, title:"Plan, Write, Check",
+headline:"A full answer in 20 minutes",
+subtitle:"Plan a complete Task 1 answer, write it in 20 minutes and check it the way an examiner reads it.",
+arTitle:"خطّط لإجابة كاملة، واكتبها في 20 دقيقة، وراجعها كما يقرؤها الممتحن.",
+objectives:["plan an answer in three minutes","write a complete Task 1 answer","check your answer against the four marking criteria"],
+theme:{pri:"#3730a3","pri-dark":"#1e1b4b",sec:"#f472b6",acc:"#facc15",tint:"#eef2ff",grid:"rgba(55,48,163,.07)",soft:"#e0e7ff",soft2:"#fce7f3"},
+heroGraph:"screens",
+graphs:{
+  screens:{type:"bar",title:"Average daily screen time by age group, 2015 and 2025",unit:"Hours per day",x:["10–17","18–30","31–50","51+"],yMax:10,yStep:2,
+    series:[{name:"2015",color:"#3730a3",values:[5,6,4,2]},{name:"2025",color:"#ec4899",values:[7,8,5,4]}]},
+  temps:{type:"line",title:"Average monthly temperature in two cities",unit:"Temperature (°C)",x:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],yMax:40,yStep:10,
+    series:[{name:"City A",color:"#dc2626",values:[19,20,23,27,31,34,35,35,33,29,25,21]},{name:"City B",color:"#2563eb",values:[3,4,8,12,16,20,23,22,18,13,8,4]}]}
+},
+notice:{
+  intro:"This is the chart for the model answer. Plan before you read. What are the key features?",
+  introAr:"هذا مخطط الإجابة النموذجية. خطّط قبل أن تقرأ. ما أهم الملامح؟",
+  graphs:["screens"],
+  questions:[
+    {q:"What happened to screen time between 2015 and 2025?",options:["It rose in every age group.","It fell in every age group.","It rose only for young people."],answer:"It rose in every age group.",why:"Every 2025 bar is taller than the 2015 bar."},
+    {q:"Which age group had the highest figure in both years?",options:["18–30","10–17","51+"],answer:"18–30",why:"6 hours in 2015 and 8 hours in 2025."},
+    {q:"Which group's screen time doubled?",options:["51+","31–50","18–30"],answer:"51+",why:"2 hours → 4 hours."}
+  ]
+},
+learn:[
+  {t:"The 20-minute plan",ar:"3 دقائق للتخطيط، 15 دقيقة للكتابة، دقيقتان للمراجعة.",
+    head:["Minutes","Step","What to do"],
+    rows:[["0–3","**Plan**","Read the task. Find 2 key features. Choose your two body groups. Write short notes."],["3–18","**Write**","Introduction → Overview → Body 1 → Body 2."],["18–20","**Check**","Numbers, tenses, small grammar mistakes, word count."]]},
+  {t:"Plan in 30 words",ar:"اكتب ملاحظات قصيرة جدًا قبل الكتابة.",
+    body:["Your plan is **notes**, not sentences. Here is a plan for the screen time chart:"],
+    graph:"screens",
+    ex:[{label:"Plan",text:"{{Intro:|1}} bar chart, daily screen time, 4 age groups, 2015 & 2025. {{Overview:|2}} all rose; 18–30 highest, 51+ lowest. {{Body 1:|3}} 2015 figures. {{Body 2:|4}} 2025 + changes; 51+ doubled."}]},
+  {t:"A strategy for each graph type",ar:"استراتيجية لكل نوع من الرسوم البيانية.",
+    head:["Graph","Key features","Group the body by"],
+    rows:[["Line graph","trends, highest/lowest, lines crossing","line (category) or time"],["Bar chart","highest/lowest bars, patterns","category or year"],["Pie chart","largest/smallest parts","size (big parts / small parts)"],["Two pie charts","biggest changes, what stayed largest","year, or parts that grew / shrank"]]},
+  {t:"How the examiner marks your answer",ar:"يقيّم الممتحن إجابتك بأربعة معايير متساوية.",
+    body:["Four criteria. Each one is **25%** of your score."],
+    head:["Criterion","The examiner asks…"],
+    rows:[["**Task Achievement**","Is there a clear overview? Are the key features covered? Is the data accurate?"],["**Coherence and Cohesion**","Are there clear paragraphs? Are ideas linked well?"],["**Lexical Resource**","Is there a range of graph vocabulary? Did the student paraphrase?"],["**Grammatical Range and Accuracy**","Are there different sentence types? Are there few errors?"]]},
+  {t:"Check for these errors",ar:"راجع هذه الأخطاء الشائعة قبل التسليم.",
+    head:["Check","✗ Wrong","✓ Right"],
+    rows:[["Tense","Screen time increase in 2025.","Screen time **increased** in 2025."],["Numbers","The 31–50 group reached 6 hours.","The 31–50 group reached **5** hours."],["number / amount","The amount of hours rose.","The **number** of hours rose."],["Prepositions","It rose with 2 hours.","It rose **by** 2 hours."],["Articles","Number of people rose.","**The** number of people rose."],["Word count","132 words","**150+** words"]]},
+  {t:"What lifts your score",ar:"ما الذي يرفع درجتك.",
+    list:["A **clear overview** with the two main features.","**Accurate** figures for the key points only.","**Comparisons**, not lists.","Logical **paragraphs** and varied **linking words**.","A range of **graph vocabulary** (rose sharply, a slight fall, accounted for).","**Complex sentences**: …, while … / …, which was …"]},
+  {"t": "Linking words: final checklist", "ar": "قائمة مراجعة لكلمات الربط وعلامات الترقيم قبل التسليم.", "list": ["Use **6–10 linking words** in a 150–180 word answer.", "Use **different** ones. Do not repeat “and then” again and again.", "Choose by **job**: time, difference, same, addition, result.", "Do not use essay words like “In conclusion” or “Firstly, secondly” for Task 1 data."], "head": ["Rule", "✗ Wrong", "✓ Right"], "rows": [["Comma after a starting linker", "However the figure fell.", "((However,)) the figure fell."], ["Two sentences, not one", "City A was warm, however City B was cold.", "City A was warm. ((However,)) City B was cold."], ["whereas / while join one sentence", "City A was warm. Whereas City B was cold.", "City A was warm, ((whereas)) City B was cold."], ["Vary your linkers", "And then it rose. And then it fell.", "It rose until July. ((After that,)) it fell."]], "ex": [{"label": "A linked body paragraph", "text": "((Starting with City A,)) the average temperature was 19°C in January. It rose steadily and peaked at 35°C in July. ((After that,)) it fell gradually, reaching 21°C in December.", "kind": "good"}]}
+],
+practice:[
+  {type:"sort",graph:"screens",q:"Which part of the plan does each note belong to?",cats:["Introduction","Overview","Body 1","Body 2"],
+    items:[{t:"bar chart, daily screen time, four age groups, 2015 and 2025",c:"Introduction"},{t:"all groups rose; 18–30 highest, 51+ lowest",c:"Overview"},{t:"2015: 18–30 (6 hours) vs 10–17 (5 hours)",c:"Body 1"},{t:"2015: 31–50 (4 hours) and 51+ (2 hours)",c:"Body 1"},{t:"2025: 18–30 reached 8 hours",c:"Body 2"},{t:"biggest change: 51+ doubled",c:"Body 2"}],why:"Body 1 = 2015. Body 2 = 2025 and the changes."},
+  {type:"mcq",q:"You have 20 minutes for Task 1. How long should you spend planning?",options:["about 3 minutes","about 10 minutes","no time at all"],answer:"about 3 minutes",why:"A short plan saves time and gives you better paragraphs."},
+  {type:"gap",graph:"screens",q:"Between 2015 and 2025, screen time ___ in every age group.",options:["rose","rises","has rose"],answer:"rose",why:"Past years → past simple."},
+  {type:"gap",q:"The ___ of hours spent on screens increased.",options:["number","amount","much"],answer:"number",why:"Hours are countable, so use “number”."},
+  {type:"gap",graph:"screens",q:"Screen time for 18- to 30-year-olds rose ___ 2 hours, from 6 to 8.",options:["by","with","at"],answer:"by",why:"“By” gives the size of the change."},
+  {type:"mcq",graph:"screens",q:"Which sentence has a data error?",options:["In 2025, the 31–50 group spent 6 hours a day on screens.","In 2015, people over 50 spent 2 hours a day on screens.","The youngest group spent 7 hours a day on screens in 2025."],answer:"In 2025, the 31–50 group spent 6 hours a day on screens.",why:"The figure is 5 hours. Always check your numbers."},
+  {type:"match",title:"Match each marking criterion with what it checks.",pairs:[["Task Achievement","overview, key features and correct data"],["Coherence and Cohesion","paragraphs and linking"],["Lexical Resource","range and accuracy of vocabulary"],["Grammatical Range and Accuracy","sentence variety and few errors"]]},
+  {type:"multi",q:"Which THREE things should you check in the last two minutes?",options:["Are my numbers correct?","Did I use the right tenses?","Do I have at least 150 words?","Did I give my opinion?","Can I add a paragraph about the causes?"],answers:["Are my numbers correct?","Did I use the right tenses?","Do I have at least 150 words?"],why:"Opinions and causes should never be in Task 1."},
+  {type:"mcq",q:"A graph shows a figure for 2030. Which sentence is correct?",options:["The figure is expected to reach 10 hours in 2030.","The figure reached 10 hours in 2030.","The figure has reached 10 hours in 2030."],answer:"The figure is expected to reach 10 hours in 2030.",why:"2030 is in the future, so the data is a prediction."},
+  {type:"order",q:"Put the paragraph openings of the model answer in order.",tiles:["The bar chart compares how many hours…","Overall, screen time increased in every age group…","In 2015, people aged 18–30 used screens for…","By 2025, screen time among 18- to 30-year-olds had risen…"],why:"Introduction → Overview → Body 1 (2015) → Body 2 (2025)."},
+  {type:"mcq",q:"Which problem hurts your Task Achievement score the most?",options:["There is no overview.","One word is spelled wrong.","The introduction is only one sentence."],answer:"There is no overview.",why:"A missing overview is a serious Task Achievement problem. A one-sentence introduction is fine."},
+  {type:"gap",q:"Screen time increased ___ the ten-year period.",options:["over","on","at"],answer:"over",why:"“Over the period” = during the whole time."},
+  {"type": "mcq", "q": "Which sentence uses the linking word correctly?", "options": ["City A was warm. However, City B was cold.", "City A was warm, however City B was cold.", "City A was warm. Whereas City B was cold."], "answer": "City A was warm. However, City B was cold.", "why": "“However,” starts a new sentence and has a comma. “Whereas” must join two parts of one sentence."},
+  {"type": "gap", "graph": "temps", "q": "In City A, the temperature rose until July. ___, it fell gradually.", "options": ["After that", "Before that", "Similarly"], "answer": "After that", "why": "The fall came next in time."},
+  {"type": "mcq", "q": "What is the problem with this paragraph? “And then it rose. And then it fell. And then it rose again.”", "options": ["It repeats the same linking words.", "It has too many numbers.", "It has no verbs."], "answer": "It repeats the same linking words.", "why": "Use different linkers: After that, / Then / By December,"}
+],
+upgrade:[
+  {band5:"The chart shows screen time. In 2015, 18–30 was 6 hours and 10–17 was 5 hours… (no overview)",graph:"screens",options:["Add: “Overall, screen time increased in every age group, and people aged 18–30 spent the most time on screens.”","Add: “In conclusion, screens are bad for people's eyes.”","Add: “The chart is very clear and easy to read.”"],answer:"Add: “Overall, screen time increased in every age group, and people aged 18–30 spent the most time on screens.”",why:"The answer needs an overview of the key features."},
+  {band5:"In 2025 the 51+ group was 4 hours, it was double.",options:["The most significant change was in the 51+ group, where daily screen time doubled to 4 hours.","In 2025 the 51+ group was 4 hours and it was double.","The 51+ group is double in 2025 with 4 hours."],answer:"The most significant change was in the 51+ group, where daily screen time doubled to 4 hours.",why:"A complex sentence with “where” links the change and the figure."},
+  {band5:"Screen time is increase in all group.",options:["Screen time increased in all age groups.","Screen time was increase in all groups.","Screen time increases in all group."],answer:"Screen time increased in all age groups.",why:"Past simple verb and a plural noun after “all”."},
+  {band5:"In conclusion, young people use phones too much and this is bad for their health.",options:["Overall, people of all ages spent more time on screens in 2025 than in 2015.","In conclusion, phones are very bad.","To conclude, young people must stop using phones."],answer:"Overall, people of all ages spent more time on screens in 2025 than in 2015.",why:"Report the data. No opinions or advice."}
+],
+model:{
+  task:"The bar chart below shows the average number of hours per day that people in four age groups spent looking at screens in 2015 and 2025.",
+  graph:"screens",
+  hl:{all:[{k:"bar",g:0,s:1},{k:"bar",g:1,s:1},{k:"bar",g:2,s:1},{k:"bar",g:3,s:1}], top:[{k:"bar",g:1,s:0},{k:"bar",g:1,s:1}], low:[{k:"bar",g:3,s:0},{k:"bar",g:3,s:1}],
+      b15a:[{k:"bar",g:1,s:0},{k:"bar",g:0,s:0}], b15b:[{k:"bar",g:2,s:0},{k:"bar",g:3,s:0}], b25a:[{k:"bar",g:1,s:1},{k:"bar",g:0,s:1}], mid:[{k:"bar",g:2,s:0},{k:"bar",g:2,s:1}], old:[{k:"bar",g:3,s:0},{k:"bar",g:3,s:1}]},
+  paras:[
+    {"label": "Introduction", "job": "Paraphrase", "text": "The bar chart compares how many hours a day people in four age groups spent looking at screens ((in two different years,)) 2015 and 2025."},
+    {"label": "Overview", "job": "Two key features", "text": "((Overall,)) [[screen time increased in every age group|all]] ((over the ten-year period)). ((In addition,)) [[people aged 18 to 30 spent the most time on screens|top]] in both years, ((while)) [[the oldest group spent the least|low]]."},
+    {"label": "Body 1", "job": "Group: 2015", "text": "((In 2015,)) people aged 18–30 used screens for [[an average of 6 hours a day, slightly more than the 5 hours|b15a]] recorded for 10- to 17-year-olds. ((By comparison,)) [[adults aged 31–50 spent 4 hours a day on screens, while the figure for people over 50 was only 2 hours|b15b]]."},
+    {"label": "Body 2", "job": "Group: 2025 and changes", "text": "((By 2025,)) [[screen time among 18- to 30-year-olds had risen to 8 hours, and the youngest group was close behind at 7 hours|b25a]]. ((However,)) [[the 31–50 group saw the smallest increase, of just 1 hour, to 5 hours|mid]]. ((Finally,)) the most significant change was in [[the 51+ group, where daily screen time doubled to 4 hours|old]]."}
+  ],
+  questions:[
+    {q:"Which age group had the smallest increase?",options:["31–50","51+","18–30"],answer:"31–50",why:"4 → 5 hours, an increase of 1 hour. The others rose by 2 hours."},
+    {q:"How is the data grouped in the body paragraphs?",options:["Body 1: 2015. Body 2: 2025 and the changes.","Body 1: young people. Body 2: old people.","Body 1: numbers. Body 2: opinions."],answer:"Body 1: 2015. Body 2: 2025 and the changes.",why:"Grouping by year works well for bar charts with two years."},
+    {q:"How many hours a day did the 18–30 group spend on screens in 2025?",options:["8","6","7"],answer:"8",why:"The pink bar for 18–30 reaches 8."}
+  ]
+},
+write:{
+  instruction:"Write a full Task 1 answer in 20 minutes. Plan for 3 minutes, write, then check.",
+  instructionAr:"اكتب إجابة كاملة في 20 دقيقة: خطّط 3 دقائق، ثم اكتب، ثم راجع.",
+  task:"The line graph below shows the average monthly temperature in two cities over one year.",
+  graph:"temps", minWords:150, minTargets:5,
+  starters:["The line graph compares the average monthly temperatures in… over one year.", "Overall, City A was much warmer… In addition, both cities…, but…", "Starting with City A, the average temperature was…", "After that, it fell gradually, reaching…", "In contrast, City B was much colder…, compared with…", "Then the figure increased sharply to…, which was…"],
+  sample:[{"label": "Introduction", "text": "The line graph [[compares]] the average monthly temperatures in two cities, City A and City B, ((over)) one year."}, {"label": "Overview", "text": "((Overall,)) City A was much warmer than City B in every month. ((In addition,)) both cities followed a similar pattern, with the highest temperatures in the middle of the year, ((but)) the range of temperatures was greater in City B."}, {"label": "Body 1", "text": "((Starting with City A,)) the average temperature was 19°C in January. It [[rose]] steadily ((over the next six months)) and [[peaked at]] 35°C in July and August. ((After that,)) it [[fell]] gradually, reaching 21°C in December. ((This means that)) the temperature in City A changed by 16 degrees during the year."}, {"label": "Body 2", "text": "((In contrast,)) City B was much colder, ((especially)) in winter. ((In January,)) the average temperature was only 3°C, ((compared with)) 19°C in City A. ((Then)) the figure [[increased]] sharply to a peak of 23°C in July, ((which was)) 12 degrees lower than in City A. ((After that,)) temperatures [[dropped]] quickly to 4°C in December, ((so)) there was a difference of 20 degrees between the coldest and warmest months in City B."}],
+  compare:["Did you plan before writing?","Does your overview compare the two cities without numbers?","Did you group the data by city (or by season)?","Did you check your numbers, tenses and word count?"],
+  linkers:["Overall,", "In addition,", "Starting with City A,", "After that,", "This means that", "In contrast,", "compared with", "which was", "so"],
+  targets:[{"label": "6+ linking words", "re": "\\b(overall|in addition|starting with|after that|then|this means that|in contrast|however|whereas|while|compared with|which|so|by (december|july|the end)|meanwhile|similarly|but|especially)\\b", "min": 6},{label:"compares / illustrates",re:"compar|illustrat|gives information"},{label:"overall",re:"\\boverall\\b"},{label:"peak / peaked at",re:"\\bpeak"},{label:"rose / increased",re:"\\brose\\b|increas|climbed"},{label:"fell / dropped",re:"\\bfell\\b|dropped|declin|decreas"},{label:"compared with / whereas / while",re:"compared (with|to)|whereas|\\bwhile\\b|in contrast"},{label:"°C / degrees",re:"°c|degrees"}]
+}
+};
+</script>
+<script>(function(){
+"use strict";
+const L = window.LESSON;
+const $ = (s,r=document)=>r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle = a => { a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+
+/* ---------- theme ---------- */
+const T = L.theme, root = document.documentElement.style;
+for (const k in T) root.setProperty("--"+k, T[k]);
+
+/* ---------- state ---------- */
+let S = { v:1, lesson:L.id, ans:{}, seen:{}, writing:"", name:"", order:{} };
+const stepNames = [
+  ["notice","Notice","لاحِظ"],["learn","Learn","تعلّم"],["practice","Practice","تدرّب"],
+  ["upgrade","Fix it","صحّح"],["model","Model answer","نموذج الإجابة"],
+  ["write","Your turn","دورك"],["finish","Finish","النهاية"]
+];
+let step = "notice";
+
+/* scored items list */
+function scoredKeys(){
+  const k=[];
+  L.notice.questions.forEach((_,i)=>k.push("n"+i));
+  L.practice.forEach((_,i)=>k.push("p"+i));
+  L.upgrade.forEach((_,i)=>k.push("u"+i));
+  L.model.questions.forEach((_,i)=>k.push("m"+i));
+  return k;
+}
+function score(){
+  const keys=scoredKeys(); let pts=0, done=0;
+  keys.forEach(k=>{const a=S.ans[k]; if(a&&a.done){done++; pts+=a.pts;}});
+  return {pts, total:keys.length, done, pct: Math.round(pts/keys.length*100)};
+}
+function sectionDone(prefix,n){ for(let i=0;i<n;i++){const a=S.ans[prefix+i]; if(!a||!a.done) return false;} return true; }
+function updateChip(){
+  const s=score();
+  $("#chip").textContent = `⭐ ${Math.round(s.pts*10)/10} / ${s.total}`;
+  document.querySelectorAll(".rail button").forEach(b=>{
+    const id=b.dataset.step, d=isStepDone(id); b.classList.toggle("done",d);
+  });
+}
+function isStepDone(id){
+  switch(id){
+    case "notice": return sectionDone("n",L.notice.questions.length);
+    case "learn": return L.learn.every((_,i)=>S.seen[i]);
+    case "practice": return sectionDone("p",L.practice.length);
+    case "upgrade": return sectionDone("u",L.upgrade.length);
+    case "model": return sectionDone("m",L.model.questions.length);
+    case "write": return writingStats().ok;
+    case "finish": return false;
+  }
+}
+
+/* ---------- graphs ---------- */
+const W=640,H=370;
+function niceNum(n){ return Number.isInteger(n)? n.toLocaleString("en-US") : String(n); }
+function renderGraph(cfg, hl=[] , opts={}){
+  if(cfg.type==="pie") return renderPies(cfg,hl);
+  const m={l:70,r:24,t:26,b:cfg.series.length>1?92:62};
+  const pw=W-m.l-m.r, ph=H-m.t-m.b;
+  const y0=cfg.yMin||0, y1=cfg.yMax, step=cfg.yStep;
+  const Y=v=>m.t+ph-(v-y0)/(y1-y0)*ph;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(cfg.title)}" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI,Verdana,sans-serif">`;
+  for(let v=y0; v<=y1+1e-9; v+=step){
+    const y=Y(v);
+    s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${y}" y2="${y}" stroke="#e5e7ef" stroke-width="1"/>`;
+    s+=`<text x="${m.l-8}" y="${y+5}" text-anchor="end" font-size="15" fill="#555">${niceNum(Math.round(v*100)/100)}${cfg.ySuffix||""}</text>`;
+  }
+  s+=`<line x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${m.t+ph}" stroke="#333" stroke-width="2"/>`;
+  s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${m.t+ph}" y2="${m.t+ph}" stroke="#333" stroke-width="2"/>`;
+  s+=`<text transform="translate(16 ${m.t+ph/2}) rotate(-90)" text-anchor="middle" font-size="15" fill="#333" font-weight="700">${esc(cfg.unit)}</text>`;
+  const n=cfg.x.length;
+  if(cfg.type==="line"){
+    const X=i=>m.l+ (n===1?pw/2: i*(pw-30)/(n-1)+15);
+    cfg.x.forEach((lab,i)=>{ s+=`<text x="${X(i)}" y="${m.t+ph+22}" text-anchor="middle" font-size="15" fill="#333">${esc(lab)}</text>`; });
+    // highlights under lines
+    hl.forEach(h=>{
+      if(h.k==="seg"||h.k==="ser"){
+        const ser=cfg.series[h.s], a=h.k==="ser"?0:h.a, b=h.k==="ser"?n-1:h.b;
+        const pts=[]; for(let i=a;i<=b;i++) pts.push(`${X(i)},${Y(ser.values[i])}`);
+        s+=`<polyline class="hl" points="${pts.join(" ")}" fill="none" stroke="var(--sec)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>`;
+      }
+    });
+    cfg.series.forEach((ser,si)=>{
+      const pts=ser.values.map((v,i)=>`${X(i)},${Y(v)}`).join(" ");
+      s+=`<polyline ${opts.draw?'class="draw"':''} points="${pts}" fill="none" stroke="${ser.color}" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" ${ser.dash?'stroke-dasharray="8 6"':''}/>`;
+      ser.values.forEach((v,i)=>{ s+=`<circle cx="${X(i)}" cy="${Y(v)}" r="4.5" fill="#fff" stroke="${ser.color}" stroke-width="2.5"><title>${esc(ser.name)} ${esc(cfg.x[i])}: ${niceNum(v)}${cfg.ySuffix||""}</title></circle>`; });
+    });
+    hl.forEach(h=>{ if(h.k==="pt"){ const v=cfg.series[h.s].values[h.i];
+      s+=`<circle class="hl" cx="${X(h.i)}" cy="${Y(v)}" r="15" fill="var(--sec)"/>`;
+      s+=`<circle cx="${X(h.i)}" cy="${Y(v)}" r="6" fill="${cfg.series[h.s].color}"/>`; }});
+  } else { // bar
+    const gw=pw/n, ns=cfg.series.length, bw=Math.min(46,(gw*0.72)/ns);
+    cfg.x.forEach((lab,g)=>{
+      const cx=m.l+gw*g+gw/2;
+      s+=`<text x="${cx}" y="${m.t+ph+22}" text-anchor="middle" font-size="15" fill="#333">${esc(lab)}</text>`;
+      cfg.series.forEach((ser,si)=>{
+        const v=ser.values[g], x=cx-(ns*bw)/2+si*bw, y=Y(v), hgt=m.t+ph-y;
+        const on=hl.some(h=>h.k==="bar"&&h.g===g&&h.s===si);
+        if(on) s+=`<rect class="hl" x="${x-5}" y="${y-5}" width="${bw+10}" height="${hgt+5}" rx="6" fill="var(--sec)"/>`;
+        s+=`<rect x="${x+1}" y="${y}" width="${bw-2}" height="${hgt}" rx="3" fill="${ser.color}"><title>${esc(ser.name)} ${esc(lab)}: ${niceNum(v)}</title></rect>`;
+        s+=`<text x="${x+bw/2}" y="${y-6}" text-anchor="middle" font-size="14" font-weight="700" fill="#333">${niceNum(v)}${cfg.ySuffix||""}</text>`;
+      });
+    });
+  }
+  if(cfg.series.length>1){
+    let lx=m.l, ly=H-22;
+    cfg.series.forEach(ser=>{
+      s+=`<rect x="${lx}" y="${ly-11}" width="22" height="12" rx="3" fill="${ser.color}"/><text x="${lx+28}" y="${ly}" font-size="15" fill="#333">${esc(ser.name)}</text>`;
+      lx+=44+ser.name.length*8.4;
+    });
+  }
+  if(cfg.xLabel) s+=`<text x="${m.l+pw/2}" y="${m.t+ph+44}" text-anchor="middle" font-size="13" font-weight="700" fill="#333">${esc(cfg.xLabel)}</text>`;
+  return s+"</svg>";
+}
+function renderPies(cfg,hl){
+  const np=cfg.pies.length, w=np===1?560:640, h=np===1?300:360;
+  let s=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(cfg.title)}" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI,Verdana,sans-serif">`;
+  cfg.pies.forEach((p,pi)=>{
+    const cx = np===1?160:(pi===0?160:480), cy = np===1?150:150, R = np===1?120:118;
+    if(p.title) s+=`<text x="${cx}" y="${22}" text-anchor="middle" font-size="18" font-weight="700" fill="#333">${esc(p.title)}</text>`;
+    const tot=p.slices.reduce((a,b)=>a+b.value,0); let ang=-Math.PI/2;
+    const cyy = cy + (p.title?14:0);
+    p.slices.forEach((sl,i)=>{
+      const a0=ang, a1=ang+sl.value/tot*Math.PI*2; ang=a1;
+      const mid=(a0+a1)/2, on=hl.some(hh=>hh.k==="slice"&&hh.p===pi&&hh.i===i);
+      const off=on?12:0, ox=Math.cos(mid)*off, oy=Math.sin(mid)*off;
+      const large=(a1-a0)>Math.PI?1:0;
+      const P=(a,r)=>`${cx+ox+Math.cos(a)*r},${cyy+oy+Math.sin(a)*r}`;
+      const d=`M${cx+ox},${cyy+oy} L${P(a0,R)} A${R},${R} 0 ${large} 1 ${P(a1,R)} Z`;
+      if(on) s+=`<path class="hl" d="M${cx+ox},${cyy+oy} L${P(a0,R+9)} A${R+9},${R+9} 0 ${large} 1 ${P(a1,R+9)} Z" fill="var(--sec)"/>`;
+      s+=`<path d="${d}" fill="${sl.color}" stroke="#fff" stroke-width="2"><title>${esc(sl.label)}: ${sl.value}%</title></path>`;
+      if(sl.value>=8){ const tx=cx+ox+Math.cos(mid)*R*0.64, ty=cyy+oy+Math.sin(mid)*R*0.64+5;
+        s+=`<text x="${tx}" y="${ty}" text-anchor="middle" font-size="17" font-weight="800" fill="#fff" stroke="rgba(0,0,0,.35)" stroke-width="3" paint-order="stroke">${sl.value}%</text>`; }
+    });
+  });
+  // legend
+  const first=cfg.pies[0];
+  if(np===1){
+    first.slices.forEach((sl,i)=>{ const y=60+i*34;
+      s+=`<rect x="320" y="${y-14}" width="22" height="18" rx="4" fill="${sl.color}"/><text x="352" y="${y}" font-size="17" fill="#333">${esc(sl.label)} (${sl.value}%)</text>`; });
+  } else {
+    let lx=40; first.slices.forEach(sl=>{ s+=`<rect x="${lx}" y="${h-28}" width="18" height="14" rx="3" fill="${sl.color}"/><text x="${lx+24}" y="${h-16}" font-size="15" fill="#333">${esc(sl.label)}</text>`; lx+=40+sl.label.length*8.6; });
+    cfg.pies.forEach((p,pi)=>{ const cx=pi===0?160:480;
+      p.slices.forEach(sl=>{ if(sl.value<8){ /* small values listed under pie */ }});
+      const small=p.slices.filter(sl=>sl.value<8).map(sl=>`${sl.label} ${sl.value}%`).join(", ");
+      if(small) s+=`<text x="${cx}" y="${h-44}" text-anchor="middle" font-size="14" fill="#444">${esc(small)}</text>`;
+    });
+  }
+  if(np===1){ const small=first.slices.filter(sl=>sl.value<8); /* legend already lists values */ }
+  return s+"</svg>";
+}
+function graphBox(key,hl,opts){ const c=L.graphs[key]; return `<div class="gbox">${c.title?`<p class="gtitle">${esc(c.title)}</p>`:""}${renderGraph(c,hl,opts)}</div>`; }
+
+/* mini icons for word cards */
+function icon(ic){
+  const C1="var(--pri)", C2="var(--sec)";
+  let s=`<svg viewBox="0 0 92 62" aria-hidden="true">`;
+  if(!ic) return s+"</svg>";
+  if(ic.t==="line"){ const p=ic.p, n=p.length; s+=`<line x1="8" y1="4" x2="8" y2="56" stroke="#999" stroke-width="2"/><line x1="8" y1="56" x2="88" y2="56" stroke="#999" stroke-width="2"/>`;
+    const pts=p.map((v,i)=>`${14+i*(70/(n-1))},${52-v*4.6}`).join(" ");
+    s+=`<polyline points="${pts}" fill="none" stroke="${C1}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`;
+    if(ic.h!=null){ const i=ic.h; s+=`<circle cx="${14+i*(70/(n-1))}" cy="${52-p[i]*4.6}" r="6" fill="${C2}"/>`; }
+    if(ic.p2){ const pts2=ic.p2.map((v,i)=>`${14+i*(70/(n-1))},${52-v*4.6}`).join(" "); s+=`<polyline points="${pts2}" fill="none" stroke="${C2}" stroke-width="4" stroke-linecap="round"/>`; }
+  } else if(ic.t==="bars"){ const v=ic.v, n=v.length, bw=64/n;
+    s+=`<line x1="8" y1="56" x2="88" y2="56" stroke="#999" stroke-width="2"/>`;
+    v.forEach((x,i)=>{ const hh=x*4.8; s+=`<rect x="${14+i*bw}" y="${56-hh}" width="${bw-5}" height="${hh}" rx="2" fill="${ic.h===i||(ic.h2===i)?C2:C1}"/>`; });
+  } else if(ic.t==="pie"){ const v=ic.v, tot=v.reduce((a,b)=>a+b,0); let a=-Math.PI/2;
+    v.forEach((x,i)=>{ const a1=a+x/tot*2*Math.PI, lg=(a1-a)>Math.PI?1:0;
+      const P=an=>`${46+Math.cos(an)*27},${31+Math.sin(an)*27}`;
+      s+=`<path d="M46,31 L${P(a)} A27,27 0 ${lg} 1 ${P(a1)} Z" fill="${ic.h===i?C2:(i%2?"#cbd2e1":"#9aa3b8")}" stroke="#fff" stroke-width="1.5"/>`; a=a1; });
+  } else if(ic.t==="axis"){ s+=`<line x1="14" y1="4" x2="14" y2="54" stroke="${ic.d==="v"?C2:"#999"}" stroke-width="${ic.d==="v"?6:2}"/><line x1="14" y1="54" x2="88" y2="54" stroke="${ic.d==="h"?C2:"#999"}" stroke-width="${ic.d==="h"?6:2}"/>`;
+  } else if(ic.t==="txt"){ s+=`<text x="46" y="42" text-anchor="middle" font-size="${ic.fs||30}" font-weight="800" fill="${C1}" font-family="Trebuchet MS,sans-serif">${esc(ic.s)}</text>`; }
+  return s+"</svg>";
+}
+
+/* ---------- speech ---------- */
+function say(t){ try{ if(!window.speechSynthesis) return; const u=new SpeechSynthesisUtterance(t); u.lang="en-GB"; u.rate=.9; speechSynthesis.cancel(); speechSynthesis.speak(u);}catch(e){} }
+
+/* ---------- MCQ ---------- */
+function orderFor(key, opts){ // stable shuffled order saved in state
+  if(!S.order[key] || S.order[key].length!==opts.length) S.order[key]=shuffle(opts.map((_,i)=>i));
+  return S.order[key].map(i=>opts[i]);
+}
+function mcq(key, qHtml, options, answer, why, extra=""){
+  const a=S.ans[key]; const shown=orderFor(key,options);
+  let h=`<div class="q" id="q-${key}">${extra}<p class="qt">${qHtml}</p><div class="opts ${shown.some(o=>o.length>40)?"col":""}">`;
+  shown.forEach(o=>{
+    let cls="opt";
+    if(a&&a.done){ if(o===answer) cls+=" right"; else if(o===a.chosen) cls+=" wrong"; else cls+=" dim"; }
+    h+=`<button class="${cls}" data-key="${key}" data-val="${esc(o)}" ${a&&a.done?"disabled":""}>${esc(o)}</button>`;
+  });
+  h+=`</div><div class="fb ${a&&a.done?"show "+(a.pts?"good":"bad"):""}">${a&&a.done?(a.pts?"✅ Correct! ":"❌ The answer is <b>"+esc(answer)+"</b>. ")+esc(why||""):""}</div></div>`;
+  return h;
+}
+function fillBlank(q, a, answer){ return esc(q).replace("___", `<span class="blank">${a&&a.done?esc(answer):"&nbsp;"}</span>`); }
+function bindMcq(container, lookup){
+  container.querySelectorAll(".opt[data-key]").forEach(b=>b.addEventListener("click",()=>{
+    const key=b.dataset.key, item=lookup(key); if(S.ans[key]&&S.ans[key].done) return;
+    const ok=b.dataset.val===item.answer;
+    S.ans[key]={done:true, pts: ok?1:0, chosen:b.dataset.val};
+    if(ok) miniBurst(b);
+    persistAndRerender(key);
+  }));
+}
+
+/* ---------- panels ---------- */
+function pNotice(){
+  const N=L.notice;
+  let h=`<section class="panel"><h3>Notice</h3><p class="lead">${esc(N.intro)}<span class="ar">${esc(N.introAr)}</span></p>`;
+  h+=`<div class="gridn">`+N.graphs.map((g,i)=>`<div>${N.captions?`<div class="gcap">${esc(N.captions[i])}</div>`:""}${graphBox(g,[])}</div>`).join("")+`</div>`;
+  N.questions.forEach((q,i)=>{ h+=mcq("n"+i, `<span class="qn">${i+1}</span>${esc(q.q)}`, q.options, q.answer, q.why); });
+  return h+nav()+`</section>`;
+}
+function pWords(){
+  let h=`<section class="panel"><h3>Words</h3><p class="lead">Tap each card to see the meaning, the Arabic and an IELTS-style example. Press 🔊 to hear the word.<span class="ar">اضغط على كل بطاقة لترى المعنى والترجمة ومثالًا بأسلوب الآيلتس.</span></p><p class="hint" id="seencount"></p><div class="words">`;
+  L.words.forEach((w,i)=>{
+    const ex=esc(w.ex).replace(new RegExp("("+w.hi.map(x=>x.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")","i"),"<b>$1</b>");
+    h+=`<div class="card ${S.seen[i]?"seen":""}" data-i="${i}" role="button" tabindex="0" aria-label="${esc(w.w)} card"><div class="in">
+      <div class="face front">${icon(w.icon)}<div class="w">${esc(w.w)}</div><span class="pos">${esc(w.pos)}</span><span class="tap">${S.seen[i]?"✔ seen":"tap to flip"}</span></div>
+      <div class="face back"><div class="ar">${esc(w.ar)}</div><div>${esc(w.def)}</div>${w.forms?`<div><b>Forms:</b> ${esc(w.forms)}</div>`:""}<div class="ex">${ex}</div><button class="say" data-say="${esc(w.w)}">🔊 listen</button></div>
+    </div></div>`;
+  });
+  return h+`</div>`+nav()+`</section>`;
+}
+function pPractice(){
+  let h=`<section class="panel"><h3>Practice</h3><p class="lead">Practise what you learned. Your first answer counts.<span class="ar">تدرّب على ما تعلّمته. إجابتك الأولى هي التي تُحتسب.</span></p>`;
+  L.practice.forEach((it,i)=>{
+    const key="p"+i, a=S.ans[key], num=`<span class="qn">${i+1}</span>`;
+    const gr = it.graph? `<div style="max-width:430px;margin-bottom:10px">${graphBox(it.graph,[])}</div>`:"";
+    if(it.type==="gap") h+=mcq(key, num+fillBlank(it.q,a,it.answer), it.options, it.answer, it.why, gr);
+    else if(it.type==="mcq") h+=mcq(key, num+esc(it.q), it.options, it.answer, it.why, gr);
+    else if(it.type==="multi") h+=multiHtml(key,it,num,gr);
+    else if(it.type==="sort") h+=sortHtml(key,it,num,gr);
+    else if(it.type==="order") h+=gr.replace('class="gbox"','class="gbox"')+orderHtml(key,it,num);
+    else if(it.type==="match") h+=matchHtml(key,it,num);
+  });
+  return h+nav()+`</section>`;
+}
+function orderHtml(key,it,num){
+  const a=S.ans[key]||{}; const words=tilesOf(it);
+  if(!S.order[key]||S.order[key].length!==words.length){ let o; do{o=shuffle(words.map((_,i)=>i));}while(words.length>2&&o.every((v,i)=>v===i)); S.order[key]=o; }
+  const picked=a.picked||[];
+  let h=`<div class="q" id="q-${key}"><p class="qt">${num}${esc(it.q||(it.tiles?"Put the parts in the correct order.":"Put the words in the correct order."))}</p>`;
+  if(a.done){
+    h+=`<div class="tray ans">${(a.pts&&a.built&&!it.tiles?a.built.split(" "):words).map(w=>`<span class="tile">${esc(w)}</span>`).join("")}</div>`;
+    h+=`<div class="fb show ${a.pts?"good":"bad"}">${a.pts?"✅ Well done! ":"The correct sentence is shown above. "}${esc(it.why||"")}</div></div>`;
+    return h;
+  }
+  h+=`<div class="tray ans" data-key="${key}">${picked.map((ti,pi)=>`<button class="tile" data-back="${pi}">${esc(words[ti])}</button>`).join("")}</div>`;
+  h+=`<div class="tray">${S.order[key].filter(ti=>!picked.includes(ti)).map(ti=>`<button class="tile" data-pick="${ti}">${esc(words[ti])}</button>`).join("")}</div>`;
+  h+=`<button class="act" data-check="${key}">Check</button><button class="act alt" data-clear="${key}">Clear</button>`;
+  h+=`<div class="fb ${a.tries?"show bad":""}">${a.tries?"Not quite. Try once more.":""}</div></div>`;
+  return h;
+}
+function matchHtml(key,it,num){
+  const a=S.ans[key]||{}; const n=it.pairs.length;
+  if(!S.order[key]||S.order[key].length!==n) S.order[key]=shuffle(it.pairs.map((_,i)=>i));
+  const got=a.got||[];
+  let h=`<div class="q" id="q-${key}"><p class="qt">${num}${esc(it.title)}</p><div class="match" data-key="${key}"><div class="colm">`;
+  it.pairs.forEach((p,i)=>{ h+=`<button class="mbtn ${got.includes(i)?"ok":""}" data-l="${i}" ${got.includes(i)?"disabled":""}>${esc(p[0])}</button>`; });
+  h+=`</div><div class="colm">`;
+  S.order[key].forEach(i=>{ const p=it.pairs[i]; h+=`<button class="mbtn ${got.includes(i)?"ok":""} ${it.rtl?"ar":""}" data-r="${i}" ${got.includes(i)?"disabled":""}>${esc(p[1])}</button>`; });
+  h+=`</div></div>`;
+  if(a.done) h+=`<div class="fb show ${a.pts>=0.8?"good":"bad"}">Finished with ${a.miss||0} mistake${a.miss===1?"":"s"}. Score: ${Math.round(a.pts*100)}%</div>`;
+  return h+`</div>`;
+}
+function tilesOf(it){ return it.tiles? it.tiles : it.answer.split(" "); }
+function multiHtml(key,it,num,gr){
+  const a=S.ans[key]||{}; const sel=a.sel||[]; const shown=orderFor(key,it.options); const need=it.answers.length;
+  let h=`<div class="q" id="q-${key}">${gr}<p class="qt">${num}${esc(it.q)}</p><div class="opts col">`;
+  shown.forEach(o=>{ let cls="opt pickm"; const on=sel.includes(o), right=it.answers.includes(o);
+    if(a.done){ cls+= right? (on?" right":" missed") : (on?" wrong":" dim"); } else if(on) cls+=" on";
+    h+=`<button class="${cls}" data-mk="${key}" data-val="${esc(o)}" ${a.done?"disabled":""}>${a.done?(right?"✔ ":on?"✘ ":""):(on?"☑ ":"☐ ")}${esc(o)}</button>`; });
+  h+=`</div>`;
+  if(!a.done) h+=`<p class="hint">Chosen: ${sel.length} / ${need}</p><button class="act" data-mcheck="${key}" ${sel.length===need?"":"disabled"}>Check</button>`;
+  else h+=`<div class="fb show ${a.pts===1?"good":"bad"}">${a.pts===1?"✅ All correct! ":`You got ${Math.round(a.pts*100)}%. The green answers are correct. `}${esc(it.why||"")}</div>`;
+  return h+`</div>`;
+}
+function sortHtml(key,it,num,gr){
+  const a=S.ans[key]||{}; const ch=a.ch||{};
+  let h=`<div class="q" id="q-${key}">${gr}<p class="qt">${num}${esc(it.q)}</p><div class="sortlist">`;
+  it.items.forEach((row,ri)=>{ const c=ch[ri];
+    h+=`<div class="srow"><div class="stext">${esc(row.t)}</div><div class="scats">`;
+    it.cats.forEach(cat=>{ let cls="scat"; if(c!==undefined){ if(cat===row.c) cls+=" right"; else if(cat===c) cls+=" wrong"; else cls+=" dim"; }
+      h+=`<button class="${cls}" data-sk="${key}" data-ri="${ri}" data-cat="${esc(cat)}" ${c!==undefined?"disabled":""}>${esc(cat)}</button>`; });
+    h+=`</div></div>`; });
+  h+=`</div>`;
+  if(a.done) h+=`<div class="fb show ${a.pts===1?"good":"bad"}">${a.pts===1?"✅ All correct! ":`You sorted ${Math.round(a.pts*it.items.length)} of ${it.items.length} correctly. `}${esc(it.why||"")}</div>`;
+  return h+`</div>`;
+}
+function pLearn(){
+  let h=`<section class="panel"><h3>Learn</h3><p class="lead">Read each card. Press <b>Got it</b> when you understand it.<span class="ar">اقرأ كل بطاقة واضغط «فهمت» عندما تفهمها.</span></p><p class="hint" id="seencount">Cards read: ${Object.keys(S.seen).length} / ${L.learn.length}</p>`;
+  L.learn.forEach((c,i)=>{
+    h+=`<article class="lcard ${S.seen[i]?"seen":""}"><div class="lhead"><span class="lnum">${i+1}</span><h4>${esc(c.t)}</h4></div><p class="ar lar">${esc(c.ar)}</p>`;
+    (c.body||[]).forEach(b=>{ h+=`<p>${rich(b)}</p>`; });
+    if(c.list) h+=`<ul class="llist">${c.list.map(x=>`<li>${rich(x)}</li>`).join("")}</ul>`;
+    if(c.rows) h+=`<div class="ltable"><table>${c.head?`<tr>${c.head.map(x=>`<th>${esc(x)}</th>`).join("")}</tr>`:""}${c.rows.map(r=>`<tr>${r.map(x=>`<td dir="auto">${rich(x)}</td>`).join("")}</tr>`).join("")}</table></div>`;
+    if(c.graph) h+=`<div style="max-width:520px">${graphBox(c.graph,[])}</div>`;
+    (c.ex||[]).forEach(e=>{ h+=`<div class="lex ${e.kind||""}"><b>${esc(e.label)}</b><div>${rich(e.text)}</div></div>`; });
+    h+=`<button class="act ${S.seen[i]?"alt":""}" data-got="${i}">${S.seen[i]?"✔ Got it":"Got it"}</button></article>`;
+  });
+  return h+nav()+`</section>`;
+}
+function rich(t){ return esc(t).replace(/\(\((.+?)\)\)/g,'<span class="tr">$1</span>').replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/\{\{(.+?)\|(\d)\}\}/g,'<span class="seg s$2">$1</span>'); }
+function pUpgrade(){
+  let h=`<section class="panel"><h3>Upgrade it</h3><p class="lead">Each red example has a problem. Choose the version a Band 6.5 writer would use.<span class="ar">في كل مثال أحمر مشكلة. اختر الصيغة التي يكتبها طالب بمستوى 6.5.</span></p>`;
+  L.upgrade.forEach((u,i)=>{
+    h+=mcq("u"+i, `<span class="qn">${i+1}</span>Which is the best upgrade?`, u.options, u.answer, u.why, `<div class="band5"><b>Band 5:</b> ${esc(u.band5)}</div>${u.graph?`<div style="max-width:430px;margin-bottom:10px">${graphBox(u.graph,[])}</div>`:""}`);
+  });
+  return h+nav()+`</section>`;
+}
+let activeHl=null;
+function pModel(){
+  const M=L.model;
+  let h=`<section class="panel"><h3>Model answer</h3><p class="lead">This is a Band 6.5 answer. Look at the job of each paragraph. Tap the highlighted words to see the data on the graph.<span class="ar">هذه إجابة بمستوى 6.5. لاحظ وظيفة كل فقرة، واضغط على الكلمات الملوّنة لترى البيانات في الرسم.</span></p>`;
+  h+=`<p class="legend"><span class="hldemo">Yellow</span> = data on the graph (tap it) &nbsp; <span class="tr">Pink</span> = linking words</p><div class="task"><b>Task:</b> ${esc(M.task)} <br>Summarise the information by selecting and reporting the main features, and make comparisons where relevant. Write at least 150 words.</div>`;
+  h+=`<div class="modelwrap"><div class="gstick" id="modelgraph">${graphBox(M.graph, activeHl?M.hl[activeHl]||[]:[])}</div><div>`;
+  M.paras.forEach(p=>{
+    const txt=esc(p.text).replace(/\(\((.+?)\)\)/g,'<span class="tr">$1</span>').replace(/\[\[(.+?)\|(.*?)\]\]/g,(_,w,id)=> id?`<span class="hlw ${activeHl===id?"on":""}" data-h="${id}" role="button" tabindex="0">${w}</span>`:`<b>${w}</b>`);
+    h+=`<div class="para"><span class="lab">${esc(p.label)}</span>${p.job?`<span class="job">${esc(p.job)}</span>`:""}<p>${txt}</p></div>`;
+  });
+  h+=`<p class="hint">Word count: ${modelWordCount()} words</p></div></div><h3 style="font-family:var(--head);margin:22px 0 10px;color:var(--pri-dark)">Check your understanding</h3>`;
+  M.questions.forEach((q,i)=>{ h+=mcq("m"+i, `<span class="qn">${i+1}</span>${esc(q.q)}`, q.options, q.answer, q.why); });
+  return h+nav()+`</section>`;
+}
+function modelWordCount(){ return L.model.paras.map(p=>p.text.replace(/\(\((.+?)\)\)/g,"$1").replace(/\[\[(.+?)\|.*?\]\]/g,"$1")).join(" ").split(/\s+/).filter(Boolean).length; }
+function writingStats(){
+  const t=S.writing||""; const wc=t.split(/\s+/).filter(Boolean).length;
+  const hits=L.write.targets.map(tg=>tg.min? ((t.match(new RegExp(tg.re,"gi"))||[]).length>=tg.min) : new RegExp(tg.re,"i").test(t));
+  const nh=hits.filter(Boolean).length;
+  return {wc,hits,nh,ok: wc>=L.write.minWords && nh>=L.write.minTargets};
+}
+function pWrite(){
+  const Wt=L.write, st=writingStats();
+  let h=`<section class="panel"><h3>Your turn</h3><p class="lead">${esc(Wt.instruction)}<span class="ar">${esc(Wt.instructionAr)}</span></p>`;
+  h+=`<div class="task"><b>Task:</b> ${esc(Wt.task)}${Wt.prompts?`<ol>${Wt.prompts.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>`:""}</div>${Wt.graph?`<div style="max-width:620px;margin-bottom:12px">${graphBox(Wt.graph,[])}</div>`:""}`;
+  if(Wt.linkers) h+=`<div class="linkers"><b>Linking words to use</b><div>${Wt.linkers.map(x=>`<span class="lk">${esc(x)}</span>`).join("")}</div></div>`;
+  h+=`<div class="starters"><b>Sentence starters</b><ul>${Wt.starters.map(s=>`<li>${esc(s)}</li>`).join("")}</ul></div>`;
+  h+=`<p style="margin:6px 0"><b>Try to use at least ${Wt.minTargets} of these.</b> They light up when you use them:</p><div class="targets" id="targets">${Wt.targets.map((tg,i)=>`<span class="tg ${st.hits[i]?"on":""}">${esc(tg.label)}</span>`).join("")}</div>`;
+  h+=`<textarea id="writing" placeholder="Start writing here…" spellcheck="true">${esc(S.writing||"")}</textarea>`;
+  h+=`<p><span class="wc" id="wc">${st.wc}</span> words (aim for at least ${Wt.minWords}) · <span id="wstat">${st.ok?"✅ Target reached":""}</span></p>`;
+  h+=`<button class="act" id="dlw">Download my writing</button>`;
+  h+=`<div id="samplezone">${sampleZone()}</div>`;
+  return h+nav()+`</section>`;
+}
+function sampleZone(){
+  const Wt=L.write, st=writingStats();
+  if(!S.revealed){
+    const ready=st.wc>=Wt.minWords;
+    return `<div class="reveal"><p><b>Finished writing?</b> Compare your answer with a sample answer.<span class="ar">هل انتهيت من الكتابة؟ قارن إجابتك بإجابة نموذجية.</span></p>
+      <button class="act" id="reveal" ${ready?"":"disabled"}>Compare with a sample answer</button>
+      <span class="hint" id="revealnote">${ready?"":`Write at least ${Wt.minWords} words to unlock the sample.`}</span></div>`;
+  }
+  const mark=t=>esc(t).replace(/\(\((.+?)\)\)/g,'<span class="tr">$1</span>').replace(/\[\[(.+?)\]\]/g,'<mark>$1</mark>');
+  return `<div class="compare"><h4>Sample answer</h4><p class="hint"><mark>Yellow</mark> = key lesson language. <span class="tr">Pink</span> = linking words. Your answer does not need to be the same. Use the questions below to compare.</p>
+    <div class="grid2"><div class="mine"><span class="lab">Your answer</span><div class="txt">${esc(S.writing||"")}</div><p class="hint">${st.wc} words</p></div>
+    <div class="sample">${Wt.sample.map(p=>`<div class="para">${p.label?`<span class="lab">${esc(p.label)}</span>`:""}<p>${mark(p.text)}</p></div>`).join("")}<p class="hint">${sampleWords()} words</p></div></div>
+    <div class="check"><b>Compare your answer</b>${Wt.compare.map((c,i)=>`<label><input type="checkbox" data-cmp="${i}" ${S.cmp&&S.cmp[i]?"checked":""}> ${esc(c)}</label>`).join("")}</div>
+    <p class="hint">You can still edit your writing above. Improve it using ideas from the sample, but use your own words.</p></div>`;
+}
+function sampleWords(){ return L.write.sample.map(p=>p.text.replace(/\(\((.+?)\)\)/g,"$1").replace(/\[\[(.+?)\]\]/g,"$1")).join(" ").split(/\s+/).filter(Boolean).length; }
+function bindSample(){
+  const r=$("#reveal"); if(r) r.addEventListener("click",()=>{ S.revealed=true; save(); $("#samplezone").innerHTML=sampleZone(); bindSample(); const z=$("#samplezone"); if(z.scrollIntoView) z.scrollIntoView({behavior:"smooth",block:"start"}); });
+  document.querySelectorAll("[data-cmp]").forEach(c=>c.addEventListener("change",()=>{ S.cmp=S.cmp||{}; S.cmp[c.dataset.cmp]=c.checked; save(); }));
+}
+const BADGES=[
+  ["notice","👀","Sharp eyes","Finished Notice"],["learn","📘","Blueprint reader","Read every Learn card"],
+  ["practice","🏋️","Sentence builder","Finished Practice"],["upgrade","🔧","Fixer","Finished Fix it"],
+  ["model","🔍","Model detective","Finished the model check"],["write","✍️","Writer","Reached the writing target"]
+];
+function pFinish(){
+  const s=score(), pass=s.pct>=80 && s.done===s.total;
+  let h=`<section class="panel finish"><h3>Finish</h3><p class="lead">Score 80% or more on all activities to earn your certificate.<span class="ar">احصل على 80% أو أكثر في جميع الأنشطة لتنال شهادتك.</span></p>`;
+  h+=`<div class="scorebig">${s.pct}%</div><div class="bar"><i style="width:${s.pct}%"></i></div>`;
+  h+=`<p>${s.done} of ${s.total} scored activities completed.</p>`;
+  h+=`<div class="badges">${BADGES.map(b=>`<div class="badge ${isStepDone(b[0])?"got":""}"><div class="ic">${b[1]}</div><b>${b[2]}</b><small>${b[3]}</small></div>`).join("")}</div>`;
+  if(pass){
+    h+=`<p><label for="nm"><b>Your full name</b></label><br><input id="nm" value="${esc(S.name||"")}" autocomplete="name"></p><button class="act" id="getcert">Show my certificate</button>`;
+  } else if(s.done<s.total){
+    const miss=stepNames.filter(x=>["notice","practice","upgrade","model"].includes(x[0])&&!isStepDone(x[0])).map(x=>x[1]);
+    h+=`<p>To unlock the certificate, finish: <b>${miss.join(", ")}</b>.</p>`;
+  } else {
+    h+=`<p>You scored ${s.pct}%. Press <b>Restart lesson</b> at the top to try again and reach 80%.</p>`;
+  }
+  return h+nav()+`</section>`;
+}
+function nav(){
+  const i=stepNames.findIndex(x=>x[0]===step);
+  return `<div class="navrow">${i>0?`<button class="act alt" data-go="${stepNames[i-1][0]}">Back</button>`:"<span></span>"}${i<stepNames.length-1?`<button class="act" data-go="${stepNames[i+1][0]}">Next: ${stepNames[i+1][1]}</button>`:""}</div>`;
+}
+
+/* ---------- render & bind ---------- */
+function render(focusKey){
+  const y=window.scrollY;
+  const m=$("#main");
+  m.innerHTML = ({notice:pNotice,learn:pLearn,practice:pPractice,upgrade:pUpgrade,model:pModel,write:pWrite,finish:pFinish})[step]();
+  document.querySelectorAll(".rail button").forEach(b=>b.setAttribute("aria-current", b.dataset.step===step?"step":"false"));
+  bind(m);
+  updateChip();
+  if(focusKey) window.scrollTo(0,y);
+}
+function lookup(key){
+  const t=key[0], i=+key.slice(1);
+  return t==="n"?L.notice.questions[i]: t==="p"?L.practice[i]: t==="u"?L.upgrade[i]: L.model.questions[i];
+}
+function bind(m){
+  bindMcq(m, lookup);
+  m.querySelectorAll("[data-got]").forEach(b=>b.addEventListener("click",()=>{ const i=b.dataset.got; const was=isStepDone("learn"); S.seen[i]=true; save();
+    const card=b.closest(".lcard"); card.classList.add("seen"); b.classList.add("alt"); b.textContent="✔ Got it"; $("#seencount").textContent=`Cards read: ${Object.keys(S.seen).length} / ${L.learn.length}`; updateChip();
+    if(!was&&isStepDone("learn")){ toast("📘 Badge earned: Blueprint reader"); confetti(); } }));
+  m.querySelectorAll("[data-mk]").forEach(b=>b.addEventListener("click",()=>{ const key=b.dataset.mk, it=lookup(key), a=S.ans[key]||(S.ans[key]={}); if(a.done) return; a.sel=a.sel||[];
+    const v=b.dataset.val, i=a.sel.indexOf(v); if(i>=0) a.sel.splice(i,1); else { if(a.sel.length>=it.answers.length){ toast(`Choose only ${it.answers.length}. Tap one again to remove it.`); return; } a.sel.push(v); } persistAndRerender(key); }));
+  m.querySelectorAll("[data-mcheck]").forEach(b=>b.addEventListener("click",()=>{ const key=b.dataset.mcheck, it=lookup(key), a=S.ans[key]; if(!a||!a.sel||a.sel.length!==it.answers.length) return;
+    const good=a.sel.filter(v=>it.answers.includes(v)).length, bad=a.sel.length-good; a.done=true; a.pts=Math.max(0,(good-bad)/it.answers.length); if(a.pts===1) miniBurst(b); persistAndRerender(key); }));
+  m.querySelectorAll("[data-sk]").forEach(b=>b.addEventListener("click",()=>{ const key=b.dataset.sk, it=lookup(key), a=S.ans[key]||(S.ans[key]={}); a.ch=a.ch||{}; const ri=b.dataset.ri; if(a.ch[ri]!==undefined) return;
+    a.ch[ri]=b.dataset.cat; const n=Object.keys(a.ch).length; if(n===it.items.length){ a.done=true; a.pts=it.items.filter((row,j)=>a.ch[j]===row.c).length/it.items.length; } persistAndRerender(key); }));
+  m.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
+  // words
+
+  m.querySelectorAll(".card").forEach(c=>{
+    const flip=()=>{ c.classList.toggle("flip"); const i=c.dataset.i; if(!S.seen[i]){S.seen[i]=true; c.classList.add("seen"); c.querySelector(".tap").textContent="✔ seen"; save(); updateChip(); sc.textContent=`Cards opened: ${Object.keys(S.seen).length} / ${L.words.length}`; if(isStepDone("words")) toast("🃏 Badge earned: Word explorer");} };
+    c.addEventListener("click",e=>{ if(e.target.closest(".say")) return; flip(); });
+    c.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();flip();} });
+  });
+  m.querySelectorAll(".say").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();say(b.dataset.say);}));
+  // order
+  m.querySelectorAll("[data-pick]").forEach(b=>b.addEventListener("click",()=>{
+    const key=b.closest(".q").id.slice(2); const a=S.ans[key]||(S.ans[key]={}); (a.picked=a.picked||[]).push(+b.dataset.pick); persistAndRerender(key);
+  }));
+  m.querySelectorAll("[data-back]").forEach(b=>b.addEventListener("click",()=>{
+    const key=b.closest(".q").id.slice(2); const a=S.ans[key]; a.picked.splice(+b.dataset.back,1); persistAndRerender(key);
+  }));
+  m.querySelectorAll("[data-clear]").forEach(b=>b.addEventListener("click",()=>{ const key=b.dataset.clear; const a=S.ans[key]||(S.ans[key]={}); a.picked=[]; persistAndRerender(key); }));
+  m.querySelectorAll("[data-check]").forEach(b=>b.addEventListener("click",()=>{
+    const key=b.dataset.check, it=lookup(key), a=S.ans[key]||(S.ans[key]={}); const words=tilesOf(it);
+    const built=(a.picked||[]).map(i=>words[i]).join(" ");
+    if(built===words.join(" ")||(it.alts||[]).includes(built)){ a.done=true; a.pts=a.tries?0.5:1; a.built=built; miniBurst(b); }
+    else { a.tries=(a.tries||0)+1; if(a.tries>=2){ a.done=true; a.pts=0; } }
+    persistAndRerender(key);
+  }));
+  // match
+  m.querySelectorAll(".match").forEach(box=>{
+    const key=box.dataset.key; let selL=null;
+    box.querySelectorAll("[data-l]").forEach(b=>b.addEventListener("click",()=>{ box.querySelectorAll("[data-l]").forEach(x=>x.classList.remove("sel")); b.classList.add("sel"); selL=+b.dataset.l; }));
+    box.querySelectorAll("[data-r]").forEach(b=>b.addEventListener("click",()=>{
+      if(selL===null){ toast("First choose a word on the left."); return; }
+      const it=lookup(key), a=S.ans[key]||(S.ans[key]={got:[],miss:0}); a.got=a.got||[]; a.miss=a.miss||0;
+      const r=+b.dataset.r;
+      if(r===selL){ a.got.push(r); if(a.got.length===it.pairs.length){ a.done=true; a.pts=Math.max(0,(it.pairs.length-a.miss)/it.pairs.length); miniBurst(b);} persistAndRerender(key); }
+      else { a.miss++; save(); b.classList.add("no"); setTimeout(()=>b.classList.remove("no"),600); }
+    }));
+  });
+  // model highlights
+  m.querySelectorAll(".hlw").forEach(b=>b.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); b.click(); } }));
+  m.querySelectorAll(".hlw").forEach(b=>b.addEventListener("click",()=>{
+    activeHl = activeHl===b.dataset.h? null : b.dataset.h;
+    $("#modelgraph").innerHTML=graphBox(L.model.graph, activeHl?L.model.hl[activeHl]:[]);
+    m.querySelectorAll(".hlw").forEach(x=>x.classList.toggle("on", x.dataset.h===activeHl));
+  }));
+  // writing
+  const ta=$("#writing");
+  if(ta){ ta.addEventListener("input",()=>{ const was=isStepDone("write"); S.writing=ta.value; const st=writingStats();
+      $("#wc").textContent=st.wc; $("#wstat").textContent=st.ok?"✅ Target reached":"";
+      document.querySelectorAll("#targets .tg").forEach((t,i)=>t.classList.toggle("on",st.hits[i]));
+      const rb=$("#reveal"); if(rb){ const ready=st.wc>=L.write.minWords; rb.disabled=!ready; $("#revealnote").textContent=ready?"":`Write at least ${L.write.minWords} words to unlock the sample.`; }
+      const mine=document.querySelector(".mine .txt"); if(mine){ mine.textContent=ta.value; }
+      save(); updateChip(); if(!was&&st.ok){ toast("✍️ Badge earned: Writer"); confetti(); } });
+    bindSample();
+    $("#dlw").addEventListener("click",()=>download(`${L.id}-writing.txt`, `${L.title}\n\nTask: ${L.write.task}\n\n${S.writing||""}\n`,"text/plain")); }
+  const gc=$("#getcert"); if(gc) gc.addEventListener("click",()=>{ S.name=$("#nm").value.trim(); if(!S.name){toast("Type your name first.");$("#nm").focus();return;} save(); showCert(); });
+}
+function persistAndRerender(key){
+  save(); render(key);
+  const sec=key[0], map={n:"notice",p:"practice",u:"upgrade",m:"model"}[sec];
+  const a=S.ans[key];
+  if(a&&a.done&&isStepDone(map)){ const b=BADGES.find(x=>x[0]===map); if(b && !S["b_"+map]){ S["b_"+map]=1; save(); toast(`${b[1]} Badge earned: ${b[2]}`); confetti(); } }
+}
+function go(id){ step=id; activeHl=null; render(); window.scrollTo({top:0,behavior:"smooth"}); }
+
+/* ---------- storage: in-memory + JSON file ---------- */
+function save(){ /* progress is kept in memory; use Save progress to download a JSON file */ }
+function download(name, text, type){ const b=new Blob([text],{type}); const a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download=name; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500); }
+function saveFile(){ download(`${L.id}-progress.json`, JSON.stringify(S,null,1), "application/json"); toast("💾 Progress saved to a file"); }
+function loadFile(file){
+  const r=new FileReader(); r.onload=()=>{ try{ const d=JSON.parse(r.result); if(d.lesson!==L.id){ toast("This file is for a different lesson."); return; } S=Object.assign({v:1,lesson:L.id,ans:{},seen:{},writing:"",name:"",order:{}},d); render(); toast("📂 Progress loaded"); }catch(e){ toast("That file could not be read."); } }; r.readAsText(file);
+}
+
+/* ---------- fx ---------- */
+let toastT; function toast(t){ const el=$("#toast"); el.textContent=t; el.classList.add("show"); clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove("show"),2600); }
+const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function confetti(){
+  if(reduce) return; const c=$("#confetti"); if(!c.getContext) return; const x=c.getContext("2d"); if(!x) return;
+  c.width=innerWidth; c.height=innerHeight; const cols=[T.pri,T.sec,T.acc,"#22c55e","#fff"];
+  const P=Array.from({length:140},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,vx:(Math.random()-.5)*4,vy:2+Math.random()*4,r:4+Math.random()*5,c:cols[Math.floor(Math.random()*cols.length)],a:Math.random()*6}));
+  let f=0; (function tick(){ x.clearRect(0,0,c.width,c.height); P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.a+=.1; x.fillStyle=p.c; x.save(); x.translate(p.x,p.y); x.rotate(p.a); x.fillRect(-p.r,-p.r/2,p.r*2,p.r); x.restore();}); if(++f<150) requestAnimationFrame(tick); else x.clearRect(0,0,c.width,c.height); })();
+}
+function miniBurst(el){ if(reduce||!el.animate) return; el.animate([{transform:"scale(1)"},{transform:"scale(1.12)"},{transform:"scale(1)"}],{duration:350}); }
+function showCert(){
+  const s=score(); const d=new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
+  $("#certbg").innerHTML=`<div class="cert" role="dialog" aria-label="Certificate">
+    <div style="font-size:2.4rem">🏆</div><div style="color:var(--muted)">Certificate of achievement</div>
+    <h2>IELTS Writing Task 1</h2><div style="font-weight:700;color:var(--pri)">Build Your Answer · Lesson ${L.num}: ${esc(L.title)}</div>
+    <p style="margin:18px 0 0">This certifies that</p><div class="nm">${esc(S.name)}</div>
+    <p>completed the lesson with a score of <b>${s.pct}%</b></p><p>${d}</p>
+    <div class="by">Designed by: Nazila Motahari</div>
+    <div class="btns"><button class="act" id="pc">Print</button><button class="act alt" id="cc">Close</button></div></div>`;
+  $("#certbg").classList.add("show"); confetti();
+  $("#pc").onclick=()=>window.print(); $("#cc").onclick=()=>$("#certbg").classList.remove("show");
+}
+
+/* ---------- boot ---------- */
+function boot(){
+  document.title=`Lesson ${L.num}: ${L.title} · IELTS Task 1 Build Your Answer`;
+  $("#app").innerHTML=`
+  <header class="top"><div class="top-in"><span class="num">${L.num}</span><div class="grow"><h1>${esc(L.title)}</h1><small>IELTS Writing Task 1 · Build Your Answer series</small></div>
+  <span class="chip" id="chip"></span>
+  <div class="tools"><button id="sv" title="Save progress to a file">💾 Save</button> <button id="ld" title="Load a progress file">📂 Load</button> <button id="rs" title="Restart lesson">↺ Restart lesson</button></div>
+  <input type="file" id="fi" accept=".json,application/json" hidden></div></header>
+  <div class="hero"><div><h2>${esc(L.headline)}</h2><p>${esc(L.subtitle)}</p><p class="ar">${esc(L.arTitle)}</p><div class="obj"><b>By the end of this lesson, you will…</b><ul>${L.objectives.map(o=>`<li>${esc(o)}</li>`).join("")}</ul></div></div>
+    <div class="hero-graph">${renderGraph(L.graphs[L.heroGraph],[],{draw:true})}</div></div>
+  <nav class="rail" aria-label="Lesson steps">${stepNames.map((s,i)=>`<button data-step="${s[0]}"><span class="n">${i+1}</span>${s[1]}</button>`).join("")}</nav>
+  <main id="main"></main>
+  <footer>Designed by: Nazila Motahari</footer>
+  <div class="cert-bg" id="certbg"></div><canvas id="confetti"></canvas><div class="toast" id="toast" role="status"></div>`;
+  document.querySelectorAll(".rail button").forEach(b=>b.addEventListener("click",()=>go(b.dataset.step)));
+  $("#sv").onclick=saveFile; $("#ld").onclick=()=>$("#fi").click();
+  $("#fi").onchange=e=>{ if(e.target.files[0]) loadFile(e.target.files[0]); e.target.value=""; };
+  $("#rs").onclick=()=>{ if(confirm("Restart this lesson? Unsaved progress will be lost.")){ S={v:1,lesson:L.id,ans:{},seen:{},writing:"",name:"",order:{},revealed:false,cmp:{}}; go("notice"); } };
+  window.addEventListener("beforeunload",e=>{ if(Object.keys(S.ans).length){ e.preventDefault(); e.returnValue=""; } });
+  render();
+}
+window.__APP={get S(){return S}, renderGraph, sampleWords, loadFile, score, go, lookup, isStepDone, writingStats};
+boot();
+})();
+</script>
+</body></html>
